@@ -47,7 +47,7 @@ public class Main {
                 case "-" -> result -= number;
                 case "*" -> result *= number;
             }
-            output.append(createOutput(result, number, operator));
+            output.append(createOutput(number, result, operator));
         }
         System.out.println(output);
         return result;
