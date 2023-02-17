@@ -29,25 +29,26 @@ public class Main {
 
     }
 
-    static String createOutput(int first, int second,int result, String operator){
+    static String createOutput(int second,int result, String operator){
         String output = "";
-        output += first + " " + operator + " " + second + " (=" + result + ") ";
+        output += operator + " " + result + " (=" + second + ") ";
         return output;
     }
 
     static int doCalcul(ArrayList<String> lines, String operator){
         StringBuilder output = new StringBuilder();
         int result = Integer.parseInt(lines.get(0));
+        output.append(result);
         lines.remove(0);
         for (String line : lines) {
             int number = Integer.parseInt(line);
-            int temp = result;
+            //int temp = result;
             switch (operator) {
                 case "+" -> result += number;
                 case "-" -> result -= number;
                 case "*" -> result *= number;
             }
-            output.append(createOutput(temp, result, number, operator));
+            output.append(createOutput(result, number, operator));
         }
         System.out.println(output);
         return result;
