@@ -38,7 +38,7 @@ public class Main {
     static int doCalcul(ArrayList<String> lines, String operator){
         StringBuilder output = new StringBuilder();
         int result = Integer.parseInt(lines.get(0));
-        output.append(result);
+        output.append(result).append(" ");
         lines.remove(0);
         for (String line : lines) {
             int number = Integer.parseInt(line);
