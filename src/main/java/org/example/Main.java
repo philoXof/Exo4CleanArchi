@@ -23,29 +23,33 @@ public class Main {
                 while (!isOperator(userInput)){
                     System.out.println("opérateur inconnue, essayez encore ( *, +, - ) : ");
                 }
-                System.out.println(createOutput(lines, userInput));
+                System.out.println(doCalcul(lines, userInput));
             }
         }
 
     }
 
-    static String createOutput(ArrayList<String> lines, String operator){
+    static String createOutput(int first, int second,int result, String operator){
         String output = "";
-        output += "result : " + doCalcul(lines, operator) + ", operator : " + operator;
+        output += first + " " + operator + " " + second + " (=" + result + ") ";
         return output;
     }
 
     static int doCalcul(ArrayList<String> lines, String operator){
+        StringBuilder output = new StringBuilder();
         int result = Integer.parseInt(lines.get(0));
         lines.remove(0);
         for (String line : lines) {
             int number = Integer.parseInt(line);
+            int temp = result;
             switch (operator) {
                 case "+" -> result += number;
                 case "-" -> result -= number;
                 case "*" -> result *= number;
             }
+            output.append(createOutput(temp, result, number, operator));
         }
+        System.out.println(output);
         return result;
     }
 
