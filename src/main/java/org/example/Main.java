@@ -29,9 +29,9 @@ public class Main {
 
     }
 
-    static String createOutput(int second,int result, String operator){
+    static String createOutput(int first,int second, String operator){
         String output = "";
-        output += operator + " " + result + " (=" + second + ") ";
+        output += operator + " " + first + " (=" + second + ") ";
         return output;
     }
 
@@ -42,7 +42,6 @@ public class Main {
         lines.remove(0);
         for (String line : lines) {
             int number = Integer.parseInt(line);
-            //int temp = result;
             switch (operator) {
                 case "+" -> result += number;
                 case "-" -> result -= number;
